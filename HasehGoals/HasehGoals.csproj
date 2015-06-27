@@ -85,6 +85,7 @@
     <Content Include="_css\bootstrap.css" />
     <Content Include="_css\jquery-ui.css" />
     <Content Include="_css\jquery.dataTables.min.css" />
+    <Content Include="_img\background_faded.jpg" />
     <Content Include="_img\calendar.gif" />
     <Content Include="_img\chi.jpg" />
     <Content Include="_img\dancingSHark.gif" />
