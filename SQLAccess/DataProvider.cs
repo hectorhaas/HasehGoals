@@ -67,7 +67,7 @@ namespace SQLAccess
         {
             try
             {
-                string query = "Insert into GoalsComments (GoalID, OwnerID, CommentText) VALUES (" + goalID + "," + owner + ",'" + commentText.Replace("'","''").Replace("&","and") + "')";
+                string query = "Insert into GoalsComments (GoalID, OwnerID, CommentText) VALUES (" + goalID + "," + owner + ",'" + commentText.Replace("'", "''").Replace("&", "and") + "')";
                 DataAccess.justExecuteQuery(query);
             }
             catch (Exception ex)
@@ -79,9 +79,41 @@ namespace SQLAccess
         {
             try
             {
-                string query = "Select * from GoalsComments WHERE GoalID = " + goalID+ " ORDER BY Id DESC";
+                string query = "Select * from GoalsComments WHERE GoalID = " + goalID + " ORDER BY Id DESC";
                 DataTable dt = DataAccess.getAnyDataTable(query);
                 return dt;
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public void addPicture(string goaldID, string fileName, string owner, string comment)
+        {
+            try
+            {
+                if(comment.Trim().Equals(""))
+                {
+                    comment = "NULL";
+                }
+                else
+                {
+                    comment = "'" + comment.Trim().Replace("'", "''").Replace("&", "and") + "'";
+                }
+                string query = "Insert into GoalsPictures (Path, GoalID, UploadOwner, Comment, UploadDate) VALUES ('" + fileName + "', " + goaldID + ", " + owner + ", " + comment + " , GETDATE())";
+                DataAccess.justExecuteQuery(query);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public DataTable getPictures(string goalID)
+        {
+            try
+            {
+                string query = "Select * from GoalsPictures WHERE GoalID = " + goalID;
+                return DataAccess.getAnyDataTable(query);
             }
             catch (Exception ex)
             {

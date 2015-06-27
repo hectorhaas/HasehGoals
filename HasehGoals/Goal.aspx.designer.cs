@@ -103,6 +103,33 @@ namespace HasehGoals {
         protected global::System.Web.UI.HtmlControls.HtmlGenericControl divComments;
         
         /// <summary>
+        /// txtPictureComment control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtPictureComment;
+        
+        /// <summary>
+        /// FileUploadPictures control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.FileUpload FileUploadPictures;
+        
+        /// <summary>
+        /// btnPictureUpload control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Button btnPictureUpload;
+        
+        /// <summary>
         /// divPictures control.
         /// </summary>
         /// <remarks>

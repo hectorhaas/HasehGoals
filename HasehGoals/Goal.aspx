@@ -75,7 +75,10 @@
                             <h3 class="panel-title">Pictures</h3>
                         </div>
                         <div class="panel-body">
-
+                            
+                            <asp:TextBox ID="txtPictureComment" runat="server" TextMode="MultiLine" CssClass="maxWidthText"></asp:TextBox>
+                            <asp:FileUpload ID="FileUploadPictures" runat="server" />
+                            <asp:Button ID="btnPictureUpload" runat="server" Text="Add Picture" CssClass="btn btn-success" OnClick="btnPictureUpload_Click" />
                             <br />
                             <br />
                             <div id="divPictures" runat="server"></div>
