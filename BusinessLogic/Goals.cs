@@ -84,7 +84,7 @@ namespace BusinessLogic
                     sb.Append("<tbody>");
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
-                        
+
                         sb.Append("<tr>");
 
                         sb.Append("<td>");
@@ -120,6 +120,54 @@ namespace BusinessLogic
                 throw ex;
             }
         }
-        
+        public void UploadPicture(string ownerID, string comment, string filename)
+        {
+            try
+            {
+                DataProvider dp = new DataProvider();
+                dp.addPicture(goalID, filename, ownerID, comment);
+            }
+            catch (Exception ex)
+            {
+                throw ex;
+            }
+        }
+        public string populatePictures()
+        {
+            StringBuilder sb = new StringBuilder();
+            DataProvider dp = new DataProvider();
+            DataTable dt = dp.getPictures(goalID);
+            if (dt.Rows.Count > 0)
+            {
+                for (int i = 0; i < dt.Rows.Count; i++)
+                {
+                    sb.Append("<div class=\"panel\" style=\"width:32%;float:left;\">");
+                    sb.Append("<img id=\"pdiv" + i.ToString() + "\" src=\"" + dt.Rows[i]["Path"].ToString() + "\" alt=\"X\" style=\"width:100%;\"/>");
+                    sb.Append("<p>" + dt.Rows[i]["Comment"].ToString() + "</p>");
+                    sb.Append("</div>");
+
+                    sb.Append("<div class=\"modal fade\" id=\"myModal" + i.ToString() + "\" tabindex=\"-1\" role=\"dialog\" aria-hidden=\"true\">");
+                    sb.Append("<div class=\"modal-dialog\">");
+                    sb.Append("<div class=\"modal-content\">");
+                    sb.Append("<div class=\"modal-body\">");
+                    sb.Append("<img src=\"" + dt.Rows[i]["Path"].ToString() + "\" alt=\"X\" style=\"width:100%;\"/>");
+                    sb.Append("<p>" + dt.Rows[i]["Comment"].ToString() + "</p>");
+                    sb.Append("</div>");
+                    sb.Append("<div class=\"modal-footer\">");
+                    sb.Append("<button type=\"button\" class=\"btn btn-default\" data-dismiss=\"modal\">Close</button>");
+                    sb.Append("</div></div></div></div>");
+                    sb.Append("<script>");
+                    sb.Append("$('#myModal" + i.ToString() + "').on('shown.bs.modal', function () {");
+                    sb.Append("$('#pdiv" + i.ToString() + "').focus()");
+                    sb.Append("});");
+                    sb.Append("</script>");
+                }
+            }
+            else
+            {
+                sb.Append("<h2>No Pictures...</h2>");
+            }
+            return sb.ToString();
+        }
     }
 }
