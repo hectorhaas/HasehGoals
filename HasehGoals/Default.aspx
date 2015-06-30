@@ -10,7 +10,7 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-md-12 column" style="background-image: url('_img/swiss1.jpg');">
+            <div class="col-md-12 column" style="background-image: url('_img/swiss1.jpg');background-attachment: fixed;">
                 <h1 class="text-center">Hector and Eevee's Goals
                 </h1>
             </div>
@@ -21,7 +21,7 @@
                 <div class="panel panel-default">
                     <div class="panel-heading" role="tab" id="headingTwo">
                         <h4 class="panel-title">
-                            <a class="collapsed" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add a new Goal
+                            <a class="collapsed label label-default" data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">Add a new Goal
                             </a>
                         </h4>
                     </div>
