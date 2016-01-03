@@ -120,5 +120,31 @@ namespace SQLAccess
                 throw ex;
             }
         }
+        public DataTable verifyAccess(string userName, string password)
+        {
+            DataTable dt = null;
+            string query = "Select Id FROM GoalsOwner WHERE UPPER(userName) = '" + userName + "' AND userPassword = '" + password + "'";
+            dt = DataAccess.getAnyDataTable(query);
+            return dt;
+        }
+        public void updateUser(string GoalOwnerID, string userName, string userPassword, string email, string receiveEmails)
+        {
+            string query = "";
+            if (!userPassword.Equals(""))
+            {
+                query = "UPDATE GoalsOwner SET userName = '" + userName + "', userPassword = '" + userPassword + "', Email = '" + email + "', receiveEmails = '" + receiveEmails + "' WHERE Id = " + GoalOwnerID;
+            }
+            else
+            {
+                query = "UPDATE GoalsOwner SET userName = '" + userName + "', Email = '" + email + "', receiveEmails = '" + receiveEmails + "' WHERE Id = " + GoalOwnerID;
+            }
+            DataAccess.justExecuteQuery(query);
+        }
+        public DataTable getUser(string GoalOwnerID)
+        {
+            string query = "Select [Id],[Name],[userName],[Email],[ProfilePicture],[userPassword],[receiveEmails],[profilePicturePath] FROM [ayalaSolivanData].[dbo].[GoalsOwner] WHERE Id = " + GoalOwnerID;
+            DataTable dt = DataAccess.getAnyDataTable(query);
+            return dt;
+        }
     }
 }

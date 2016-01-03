@@ -11,37 +11,8 @@
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <br />
-    <asp:Button ID="btnGoBack" runat="server" Text="Go Back" CssClass="btn btn-info" OnClick="btnGoBack_Click" />
-    <asp:Panel ID="panelLogin" runat="server" Visible="true">
-        <div class="container" runat="server" id="divLoginContainer">
-            <div class="row clearfix">
-                <div class="col-md-12 column">
-                    <div class="panel panel-default">
-                        <div class="panel-heading" role="tab">
-                            <h2 class="panel-title">Select a User</h2>
-                        </div>
-                        <div class="panel-body">
-                            <div style="clear:both;"></div>
-                            <div style="width:70%; margin:auto;">
-                                <div style="width:25%;float:left;">
-                                    <img src="_img/chi.jpg" style="width:100%" />
-                                    <asp:Button ID="txtEvonne" CssClass="btn btn-primary" runat="server" Text="Eevee" OnClick="txtEvonne_Click" />
-                                </div>
-                                <div style="width:25%;float:right;">
-                                    <img src="_img/retard.jpg" style="width:100%"/>
-                                    <asp:Button ID="txtHector" CssClass="btn btn-primary" runat="server" Text="Hector" OnClick="txtHector_Click" />
-                                </div>
-                            </div>
-                            <div style="clear:both;"></div>
-                        </div>
-                    </div>
-                </div>
-
-            </div>
-
-        </div>
-    </asp:Panel>
-    <asp:Panel ID="panelMainContent" runat="server" Visible="false">
+    <asp:Button ID="btnGoBack" runat="server" Text="Go Back" CssClass="btn btn-info" OnClick="btnGoBack_Click" Visible="false" />
+    <asp:Panel ID="panelMainContent" runat="server" Visible="true">
         <div class="container">
             <div class="row clearfix">
                 <div class="col-md-12 column">
@@ -53,6 +24,10 @@
                         <div class="panel-body">
                             
                             <div id="divGoalInfo" runat="server"></div>
+                            <br />
+                            <asp:Button ID="btnEditGoal" runat="server" Text="Edit" CssClass="btn btn-sm btn-info" OnClick="btnEditGoal_Click"/>
+                            <asp:Button ID="btnUpdateGoal" runat="server" Text="Button" CssClass="btn btn-sm btn-success"  Visible="false"/>
+                            <asp:Button ID="btnCancelGoal" runat="server" Text="Button" CssClass="btn btn-sm btn-danger" Visible="false"/>
                         </div>
                     </div>
                     <!--Comments-->
@@ -89,5 +64,4 @@
         </div>
     </asp:Panel>
     <!--HiddenFields-->
-    <asp:HiddenField ID="ownerID" runat="server" />
-</asp:Content>
+    </asp:Content>

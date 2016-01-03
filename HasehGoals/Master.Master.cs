@@ -11,7 +11,15 @@ namespace HasehGoals
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
+            //
+            checkIfLogin();
+        }
+        private void checkIfLogin()
+        {
+            if(Session["GoalOwner"] == null)
+            {
+                Response.Redirect("Login.aspx");
+            }
         }
     }
 }

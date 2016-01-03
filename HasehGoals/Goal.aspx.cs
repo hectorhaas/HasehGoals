@@ -35,25 +35,10 @@ namespace HasehGoals
             }
             else
             {
-                divLoginContainer.InnerHtml = "Error";
                 divComments.InnerHtml = "Error";
                 divGoalInfo.InnerHtml = "Error";
                 divPictures.InnerHtml = "Error";
             }
-        }
-
-        protected void txtEvonne_Click(object sender, EventArgs e)
-        {
-            ownerID.Value = "1";
-            panelLogin.Visible = false;
-            panelMainContent.Visible = true;
-        }
-
-        protected void txtHector_Click(object sender, EventArgs e)
-        {
-            ownerID.Value = "2";
-            panelLogin.Visible = false;
-            panelMainContent.Visible = true;
         }
 
         protected void btnGoBack_Click(object sender, EventArgs e)
@@ -66,7 +51,7 @@ namespace HasehGoals
             try
             {
                 Goals gi = new Goals(Request.QueryString["id"].ToString());
-                gi.addComment(txtComment.Text, ownerID.Value);
+                gi.addComment(txtComment.Text, Session["GoalOwner"].ToString());
                 txtComment.Text = "";
                 //RepopulateTable
                 populateCommentsTable();
@@ -136,7 +121,7 @@ namespace HasehGoals
                     requestStream.Flush();
 
                     Goals gi = new Goals(Request.QueryString["id"].ToString());
-                    gi.UploadPicture(ownerID.Value, txtPictureComment.Text, dbFileName);
+                    gi.UploadPicture(Session["GoalOwner"].ToString(), txtPictureComment.Text, dbFileName);
 
                 }
 
@@ -150,6 +135,11 @@ namespace HasehGoals
         {
             Goals gi = new Goals(Request.QueryString["id"].ToString());
             divPictures.InnerHtml = gi.populatePictures();
+        }
+
+        protected void btnEditGoal_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

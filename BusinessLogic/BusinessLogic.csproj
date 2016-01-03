@@ -44,6 +44,7 @@
     <Compile Include="TableCreator.cs" />
     <Compile Include="Updater.cs" />
     <Compile Include="Uploader.cs" />
+    <Compile Include="Users.cs" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\SQLAccess\SQLAccess.csproj">

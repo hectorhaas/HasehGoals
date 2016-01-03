@@ -182,7 +182,7 @@ namespace BusinessLogic
                         sb.Append("</td>");
                         //Date to Complete
                         sb.Append("<td>");
-                        sb.Append(dt.Rows[i]["dateCompleted"].ToString());
+                        sb.Append(Convert.ToDateTime(dt.Rows[i]["dateCompleted"].ToString()).ToShortDateString());
                         sb.Append("</td>");
                         //Buttons
                         sb.Append("</tr>");
