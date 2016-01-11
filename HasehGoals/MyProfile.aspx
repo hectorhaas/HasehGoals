@@ -46,6 +46,19 @@
         </div>
         <div class="row">&nbsp;</div>
         <div class="row">
+            <div class="col-md-2">
+                <asp:Label ID="Label1" runat="server" Text="Profile Picture" CssClass="label label-default"></asp:Label>
+            </div>
+            <div class="col-md-3">
+                <asp:FileUpload ID="FileUploadPictures" runat="server" />
+            </div>
+            <div class="col-md-1">
+                <div style="width:100%;" id="divProfilePic" runat="server"></div>
+            </div>
+            <div class="col-md-6">&nbsp;</div>
+        </div>
+        <div class="row">&nbsp;</div>
+        <div class="row">
             <div class="col-md-1">
             </div>
             <div class="col-md-11">

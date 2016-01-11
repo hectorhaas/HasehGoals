@@ -10,24 +10,31 @@
     <script src="_scripts/jquery-ui.js"></script>
     <link href="_css/bootstrap.css" rel="stylesheet" />
     <script src="_scripts/bootstrap.js"></script>
+    
+    
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
-<body style="background-image:url('_img/background_faded.jpg')">
+<body style="background-image: url('_img/HASEHback.png')">
     <form id="form1" runat="server">
-    <div>
-        <div class="container">
-            <div class="row">
-                <div class="col-md-12">
-                    <span class="btn btn-primary" ><a id="aDashboard" href="Default.aspx" style="color:white;">Dashboard</a></span>
-                    <span class="btn btn-primary" ><a id="aMyProfile" href="MyProfile.aspx" style="color:white;">My Profile</a></span>
+        <div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-md-12">
+                        <img src="_img/HASEHbanner.gif" style="width: 100%;" alt="Hector and Evonne's Goals" />
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-12">
+                        <asp:LinkButton ID="lbtnDashboard" CssClass="btn btn-primary" ForeColor="White" runat="server" PostBackUrl="~/Default.aspx">Dashboard</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnMyProfile" CssClass="btn btn-primary" ForeColor="White" runat="server" PostBackUrl="~/MyProfile.aspx">My Profile</asp:LinkButton>
+                        <asp:LinkButton ID="lbtnMyPlaces" CssClass="btn btn-primary" ForeColor="White" runat="server" PostBackUrl="~/MyPlaces.aspx">My Places</asp:LinkButton>
+                    </div>
                 </div>
             </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
         </div>
-        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
-        
-        </asp:ContentPlaceHolder>
-    </div>
     </form>
 </body>
 </html>

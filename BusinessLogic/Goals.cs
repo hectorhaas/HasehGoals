@@ -69,6 +69,7 @@ namespace BusinessLogic
         {
             try
             {
+                Users usr = new Users();
                 StringBuilder sb = new StringBuilder();
                 DataProvider dp = new DataProvider();
                 DataTable dt = dp.getComments(goalID);
@@ -88,10 +89,8 @@ namespace BusinessLogic
                         sb.Append("<tr>");
 
                         sb.Append("<td>");
-                        if (dt.Rows[i]["OwnerID"].ToString().Equals("1"))
-                        { sb.Append("<img src='_img/chi.jpg' alt='Evonne' title='Evonne' style='width:50px;'/>"); }
-                        else
-                        { sb.Append("<img src='_img/retard.jpg' alt='Hector' title='Hector' style='width:50px;'/>"); }
+                        sb.Append("<img src='"+ usr.getProfilePic(dt.Rows[i]["OwnerID"].ToString()) + "' alt='PP' style='width:50px;'/>");
+                        
                         sb.Append("</td>");
 
                         sb.Append("<td>");

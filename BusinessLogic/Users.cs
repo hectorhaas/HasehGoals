@@ -25,7 +25,7 @@ namespace BusinessLogic
                 return null;
             }
         }
-        public void updateUser(string GoalOwnerID, string userName, string userPassword, string email, bool receiveEmails)
+        public void updateUser(string GoalOwnerID, string userName, string userPassword, string email, bool receiveEmails, string profilePicPath)
         {
             DataProvider dp = new DataProvider();
             string receiveEmailsString = "";
@@ -40,7 +40,7 @@ namespace BusinessLogic
             userName = cleanText(userName);
             userPassword = cleanText(userPassword);
             email = cleanText(email);
-            dp.updateUser(GoalOwnerID, userName, userPassword, email, receiveEmailsString);
+            dp.updateUser(GoalOwnerID, userName, userPassword, email, receiveEmailsString, profilePicPath);
         }
         public DataTable getUser(string GoalOwnerID)
         {
@@ -51,6 +51,11 @@ namespace BusinessLogic
         {
             text = text.Trim().Replace("'", "''");
             return text;
+        }
+        public string getProfilePic(string GoalOwnerID)
+        {
+            DataProvider dp = new DataProvider();
+            return dp.getProfilePic(GoalOwnerID);
         }
     }
 }

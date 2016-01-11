@@ -17,6 +17,7 @@ namespace HasehGoals
                 if(Request.QueryString["delete"]!=null)
                 {
                     Updater.deleteGoal(Request.QueryString.Get("delete"));
+                    ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
                 }
                 else if (Request.QueryString["complete"]!=null)
                 {
@@ -31,7 +32,7 @@ namespace HasehGoals
             {
 
             }
-            ClientScript.RegisterStartupScript(typeof(Page), "closePage", "window.close();", true);
+            
         }
     }
 }

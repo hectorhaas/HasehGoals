@@ -10,18 +10,30 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <div class="container">
         <div class="row clearfix">
-            <div class="col-md-12 column" style="background-image: url('_img/swiss1.jpg'); background-attachment: fixed;">
-                <h1 class="text-center">Hector and Eevee's Goals
-                </h1>
-            </div>
-        </div>
-        <div class="row clearfix">
             <div id="divMainTabs" class="col-md-12 column">
-                <ul>
-                    <li><a href="#tabAddNew">Add New</a></li>
+                <ul style="background-color:none;border-color:none;">                    
                     <li><a href="#tabCurrentGoals">Current Goals</a></li>
                     <li><a href="#tabPastGoals">Past Goals</a></li>
+                    <li><a href="#tabAddNew">Add New</a></li>
                 </ul>
+                <!--Current Goals-->
+                <div id="tabCurrentGoals" class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h3 class="panel-title">Current Goals</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divGoalsTable" runat="server"></div>
+                    </div>
+                </div>
+                <!--Past Goals-->
+                <div id="tabPastGoals" class="panel panel-default">
+                    <div class="panel-heading" role="tab">
+                        <h3 class="panel-title">Past Goals</h3>
+                    </div>
+                    <div class="panel-body">
+                        <div id="divPastGoalsTable" runat="server"></div>
+                    </div>
+                </div>
                 <!--Add New Panel-->
                 <div id="tabAddNew" class="panel panel-default">
                     <div class="panel-heading" role="tab">
@@ -57,24 +69,6 @@
                         <asp:Label ID="errorLabel" runat="server" Text="" CssClass="text-danger"></asp:Label>
                         <br />
                         <asp:Button ID="btnSubmitGoal" runat="server" Text="Submit Goal" CssClass="btn btn-success" OnClick="btnSubmitGoal_Click" />
-                    </div>
-                </div>
-                <!--Current Goals-->
-                <div id="tabCurrentGoals" class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h3 class="panel-title">Current Goals</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="divGoalsTable" runat="server"></div>
-                    </div>
-                </div>
-                <!--Past Goals-->
-                <div id="tabPastGoals" class="panel panel-default">
-                    <div class="panel-heading" role="tab">
-                        <h3 class="panel-title">Past Goals</h3>
-                    </div>
-                    <div class="panel-body">
-                        <div id="divPastGoalsTable" runat="server"></div>
                     </div>
                 </div>
             </div>

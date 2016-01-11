@@ -127,7 +127,7 @@ namespace SQLAccess
             dt = DataAccess.getAnyDataTable(query);
             return dt;
         }
-        public void updateUser(string GoalOwnerID, string userName, string userPassword, string email, string receiveEmails)
+        public void updateUser(string GoalOwnerID, string userName, string userPassword, string email, string receiveEmails, string profilePicPath)
         {
             string query = "";
             if (!userPassword.Equals(""))
@@ -139,12 +139,28 @@ namespace SQLAccess
                 query = "UPDATE GoalsOwner SET userName = '" + userName + "', Email = '" + email + "', receiveEmails = '" + receiveEmails + "' WHERE Id = " + GoalOwnerID;
             }
             DataAccess.justExecuteQuery(query);
+            if (!profilePicPath.Equals(""))
+            {
+                query = "UPDATE GoalsOwner SET profilePicturePath = '"+ profilePicPath + "' WHERE Id = " + GoalOwnerID;
+                DataAccess.justExecuteQuery(query);
+            }
+            
         }
         public DataTable getUser(string GoalOwnerID)
         {
             string query = "Select [Id],[Name],[userName],[Email],[ProfilePicture],[userPassword],[receiveEmails],[profilePicturePath] FROM [ayalaSolivanData].[dbo].[GoalsOwner] WHERE Id = " + GoalOwnerID;
             DataTable dt = DataAccess.getAnyDataTable(query);
             return dt;
+        }
+        public string getProfilePic(string GoalOwnerID)
+        {
+            string query = "Select [profilePicturePath] FROM [ayalaSolivanData].[dbo].[GoalsOwner] WHERE Id = " + GoalOwnerID;
+            DataTable dt = DataAccess.getAnyDataTable(query);
+            return dt.Rows[0]["profilePicturePath"].ToString();
+        }
+        public DataTable getAllOwners()
+        {
+            string query = "Select Id, profilePicturePath ";
         }
     }
 }

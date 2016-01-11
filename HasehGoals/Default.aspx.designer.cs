@@ -13,6 +13,24 @@ namespace HasehGoals {
     public partial class Default {
         
         /// <summary>
+        /// divGoalsTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGoalsTable;
+        
+        /// <summary>
+        /// divPastGoalsTable control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPastGoalsTable;
+        
+        /// <summary>
         /// txtGoal control.
         /// </summary>
         /// <remarks>
@@ -56,23 +74,5 @@ namespace HasehGoals {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.Button btnSubmitGoal;
-        
-        /// <summary>
-        /// divGoalsTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divGoalsTable;
-        
-        /// <summary>
-        /// divPastGoalsTable control.
-        /// </summary>
-        /// <remarks>
-        /// Auto-generated field.
-        /// To modify move field declaration from designer file to code-behind file.
-        /// </remarks>
-        protected global::System.Web.UI.HtmlControls.HtmlGenericControl divPastGoalsTable;
     }
 }

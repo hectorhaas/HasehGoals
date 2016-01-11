@@ -15,6 +15,7 @@ namespace BusinessLogic
         {
             try
             {
+                Users usr = new Users();
                 DataProvider dp = new DataProvider();
                 DataTable dt = dp.getCurrentGoals();
                 if (dt.Rows.Count > 0)
@@ -56,14 +57,14 @@ namespace BusinessLogic
                         sb.Append("</td>");
                         //Owner
                         sb.Append("<td>");
-                        if (dt.Rows[i]["goalOwner"].ToString().Equals("1"))
-                        { sb.Append("<img src='_img/chi.jpg' alt='Evonne' style='width:50px;'/>"); }
-                        else if (dt.Rows[i]["goalOwner"].ToString().Equals("2"))
-                        { sb.Append("<img src='_img/retard.jpg' alt='Hector' style='width:50px;'/>"); }
+                        if (dt.Rows[i]["goalOwner"].ToString().Equals("3"))
+                        {
+                            sb.Append("<img src='" + usr.getProfilePic("1") + "' alt='PP' style='width:25px;'/>");
+                            sb.Append("<img src='" + usr.getProfilePic("2") + "' alt='PP' style='width:25px;'/>");
+                        }
                         else
                         {
-                            sb.Append("<img src='_img/chi.jpg' alt='Evonne' style='width:25px;'/>");
-                            sb.Append("<img src='_img/retard.jpg' alt='Hector' style='width:25px;'/>");
+                            sb.Append("<img src='" + usr.getProfilePic(dt.Rows[i]["goalOwner"].ToString()) + "' alt='PP' style='width:50px;'/>");
                         }
                         sb.Append("</td>");
                         //Goal Text
@@ -136,6 +137,7 @@ namespace BusinessLogic
         {
             try
             {
+                Users usr = new Users();
                 DataProvider dp = new DataProvider();
                 DataTable dt = dp.getPastGoals();
                 if (dt.Rows.Count > 0)
@@ -146,12 +148,17 @@ namespace BusinessLogic
                     sb.Append("<thead>");
 
                     sb.Append("<tr>");
+                    //button
+                    sb.Append("<td></td>");
+                    //Owner
                     sb.Append("<td>");
                     sb.Append("Owner");
                     sb.Append("</td>");
+                    //Goal
                     sb.Append("<td>");
                     sb.Append("Goal");
                     sb.Append("</td>");
+                    //Date
                     sb.Append("<td>");
                     sb.Append("Date Completed");
                     sb.Append("</td>");
@@ -164,16 +171,20 @@ namespace BusinessLogic
                     for (int i = 0; i < dt.Rows.Count; i++)
                     {
                         sb.Append("<tr id='row" + i.ToString() + "'>");
+                        //Button
+                        sb.Append("<td>");
+                        sb.Append("<button type=\"button\" class=\"btn btn-primary\" id=\"btnPastSelect" + i.ToString() + "\">Open</button>");
+                        sb.Append("</td>");
                         //Owner
                         sb.Append("<td>");
-                        if (dt.Rows[i]["goalOwner"].ToString().Equals("1"))
-                        { sb.Append("<img src='_img/chi.jpg' alt='Evonne' style='width:50px;'/>"); }
-                        else if (dt.Rows[i]["goalOwner"].ToString().Equals("2"))
-                        { sb.Append("<img src='_img/retard.jpg' alt='Hector' style='width:50px;'/>"); }
+                        if (dt.Rows[i]["goalOwner"].ToString().Equals("3"))
+                        {
+                            sb.Append("<img src='" + usr.getProfilePic("1") + "' alt='PP' style='width:25px;'/>");
+                            sb.Append("<img src='" + usr.getProfilePic("2") + "' alt='PP' style='width:25px;'/>");
+                        }
                         else
                         {
-                            sb.Append("<img src='_img/chi.jpg' alt='Evonne' style='width:25px;'/>");
-                            sb.Append("<img src='_img/retard.jpg' alt='Hector' style='width:25px;'/>");
+                            sb.Append("<img src='" + usr.getProfilePic(dt.Rows[i]["goalOwner"].ToString()) + "' alt='PP' style='width:50px;'/>");
                         }
                         sb.Append("</td>");
                         //Goal Text
@@ -185,6 +196,15 @@ namespace BusinessLogic
                         sb.Append(Convert.ToDateTime(dt.Rows[i]["dateCompleted"].ToString()).ToShortDateString());
                         sb.Append("</td>");
                         //Buttons
+                        //Script
+                        sb.Append("<script>");
+                        sb.Append("$(\"#btnPastSelect" + i.ToString() + "\").click(function ()");
+                        sb.Append("{");
+
+                        sb.Append("window.location.href = 'Goal.aspx?id='+ goalID" + i.ToString() + ";");
+
+                        sb.Append("});");
+                        sb.Append("</script>");
                         sb.Append("</tr>");
                     }
                     sb.Append("</tbody>");
